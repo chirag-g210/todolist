@@ -8,7 +8,14 @@
 <body>
 
 <div class="container">
-  <h1>To-Do List</h1>
+
+  <div class="header">
+      <h1>To-Do List</h1>
+
+      <button id="theme-btn" onclick="toggleTheme()">
+          🌙
+      </button>
+  </div>
 
   <div class="input-box">
     <input type="text" id="taskInput" placeholder="Enter a task...">
@@ -16,6 +23,7 @@
   </div>
 
   <ul id="taskList"></ul>
+
 </div>
 
 <script src="script.js"></script>
