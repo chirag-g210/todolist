@@ -10,6 +10,7 @@ A simple and elegant to-do list application built with vanilla HTML, CSS, and Ja
 - ✅ **Responsive Design**: Beautiful gradient background and clean UI
 - ✅ **Local Storage Ready**: Perfect for enhancement with persistent storage
 
+- ✅ **Add Dark Mode**:Can switch between dark theme and light theme
 ## Technologies Used
 
 - **HTML5**: Structure and semantic markup
@@ -58,7 +59,6 @@ Works on all modern browsers including:
 - [ ] Add due dates to tasks
 - [ ] Add priority levels
 - [ ] Add task categories
-- [ ] Dark mode support
 - [ ] Import/Export tasks
 
 ## License
