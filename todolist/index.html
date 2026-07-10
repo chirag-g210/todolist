@@ -1,31 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Todo App</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>To-Do List</title>
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-  <div class="header">
-      <h1>To-Do List</h1>
+        <div class="header">
 
-      <button id="theme-btn" onclick="toggleTheme()">
-          🌙
-      </button>
-  </div>
+            <div>
+                <h1>To-Do List</h1>
+                <p>Stay organized & be productive 🚀</p>
+            </div>
 
-  <div class="input-box">
-    <input type="text" id="taskInput" placeholder="Enter a task...">
-    <button class="add-btn" onclick="addTask()">Add</button>
-  </div>
+            <button id="theme-btn" onclick="toggleTheme()">
+                🌙
+            </button>
 
-  <ul id="taskList"></ul>
+        </div>
 
-</div>
+        <div class="input-box">
 
-<script src="script.js"></script>
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter your task..."
+            >
+
+            <button class="add-btn" onclick="addTask()">
+                Add
+            </button>
+
+        </div>
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
