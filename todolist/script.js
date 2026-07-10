@@ -1,6 +1,23 @@
+// ===============================
+// Selected Task Index
+// ===============================
 let selectedTask = -1;
 
+// ===============================
+// Load Saved Theme
+// ===============================
+window.onload = function () {
+    let savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("theme-btn").textContent = "☀️";
+    }
+};
+
+// ===============================
 // Add Task
+// ===============================
 function addTask() {
 
     let input = document.getElementById("taskInput");
@@ -27,9 +44,10 @@ function addTask() {
     updateSelection();
 }
 
-
+// ===============================
 // Delete Task
-function deleteTask(button){
+// ===============================
+function deleteTask(button) {
 
     let tasks = document.querySelectorAll("#taskList li");
     let index = [...tasks].indexOf(button.parentElement);
@@ -38,19 +56,19 @@ function deleteTask(button){
 
     tasks = document.querySelectorAll("#taskList li");
 
-    if(tasks.length === 0){
+    if (tasks.length === 0) {
         selectedTask = -1;
-    }
-    else if(index <= selectedTask){
+    } else if (index <= selectedTask) {
         selectedTask = Math.max(0, selectedTask - 1);
     }
 
     updateSelection();
 }
 
-
-// Checkbox Toggle
-function toggleTask(checkbox){
+// ===============================
+// Toggle Checkbox
+// ===============================
+function toggleTask(checkbox) {
 
     let text = checkbox.nextElementSibling;
 
@@ -58,95 +76,105 @@ function toggleTask(checkbox){
 
 }
 
-
+// ===============================
 // Highlight Selected Task
-function updateSelection(){
+// ===============================
+function updateSelection() {
 
     let tasks = document.querySelectorAll("#taskList li");
 
     tasks.forEach(task => task.classList.remove("selected"));
 
-    if(selectedTask >= 0 && selectedTask < tasks.length){
-
+    if (selectedTask >= 0 && selectedTask < tasks.length) {
         tasks[selectedTask].classList.add("selected");
+    }
+
+}
+
+// ===============================
+// Theme Toggle
+// ===============================
+function toggleTheme() {
+
+    document.body.classList.toggle("dark");
+
+    let themeBtn = document.getElementById("theme-btn");
+
+    if (document.body.classList.contains("dark")) {
+
+        themeBtn.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+
+    } else {
+
+        themeBtn.textContent = "🌙";
+        localStorage.setItem("theme", "light");
 
     }
 
 }
 
-
+// ===============================
 // Keyboard Controls
-document.addEventListener("keydown", function(event){
+// ===============================
+document.addEventListener("keydown", function (event) {
 
     let input = document.getElementById("taskInput");
     let tasks = document.querySelectorAll("#taskList li");
 
-
-    // ENTER -> Add Task
-    if(document.activeElement === input && event.key === "Enter"){
-
+    // Enter -> Add Task
+    if (document.activeElement === input && event.key === "Enter") {
         addTask();
         return;
-
     }
 
+    // Down Arrow -> Select First Task
+    if (
+        document.activeElement === input &&
+        event.key === "ArrowDown" &&
+        input.value.trim() === ""
+    ) {
 
-    // DOWN -> First Task Select
-    if(document.activeElement === input &&
-       event.key === "ArrowDown" &&
-       input.value.trim() === ""){
-
-        if(tasks.length){
+        if (tasks.length > 0) {
 
             selectedTask = 0;
-
             updateSelection();
-
             input.blur();
 
         }
 
         event.preventDefault();
-
         return;
-
     }
 
+    // Down Arrow
+    if (event.key === "ArrowDown") {
 
-    // DOWN
-    if(event.key === "ArrowDown"){
-
-        if(selectedTask < tasks.length-1){
+        if (selectedTask < tasks.length - 1) {
 
             selectedTask++;
-
             updateSelection();
 
         }
 
         event.preventDefault();
-
     }
 
+    // Up Arrow
+    if (event.key === "ArrowUp") {
 
-    // UP
-    if(event.key === "ArrowUp"){
-
-        if(selectedTask > 0){
+        if (selectedTask > 0) {
 
             selectedTask--;
-
             updateSelection();
 
         }
 
         event.preventDefault();
-
     }
 
-
-    // ENTER -> Tick Untick
-    if(event.key === "Enter" && selectedTask >= 0){
+    // Enter -> Tick / Untick
+    if (event.key === "Enter" && selectedTask >= 0) {
 
         let checkbox = tasks[selectedTask].querySelector("input");
 
@@ -156,22 +184,20 @@ document.addEventListener("keydown", function(event){
 
     }
 
-
-    // DELETE
-    if(event.key === "Delete" && selectedTask >= 0){
+    // Delete -> Delete Selected Task
+    if (event.key === "Delete" && selectedTask >= 0) {
 
         tasks[selectedTask].remove();
 
         tasks = document.querySelectorAll("#taskList li");
 
-        if(tasks.length === 0){
+        if (tasks.length === 0) {
 
             selectedTask = -1;
 
-        }
-        else if(selectedTask >= tasks.length){
+        } else if (selectedTask >= tasks.length) {
 
-            selectedTask = tasks.length-1;
+            selectedTask = tasks.length - 1;
 
         }
 
@@ -179,14 +205,11 @@ document.addEventListener("keydown", function(event){
 
     }
 
-
-    // ESC -> Back to Input
-    if(event.key === "Escape"){
+    // Escape -> Back to Input
+    if (event.key === "Escape") {
 
         selectedTask = -1;
-
         updateSelection();
-
         input.focus();
 
     }
