@@ -1,23 +1,44 @@
+// Add new task
 function addTask() {
-  let input = document.getElementById("taskInput");
-  let task = input.value;
 
-  if (task === "") return;
+    let input = document.getElementById("taskInput");
+    let task = input.value.trim();
 
-  let li = document.createElement("li");
-  li.innerHTML = `
-    <span onclick="toggleTask(this)">${task}</span>
-    <button onclick="deleteTask(this)">❌</button>
-  `;
+    if (task === "") return;
 
-  document.getElementById("taskList").appendChild(li);
-  input.value = "";
+    let li = document.createElement("li");
+
+    li.innerHTML = `
+        <div class="task-content">
+            <input type="checkbox" onchange="toggleTask(this)">
+            <span>${task}</span>
+        </div>
+
+        <button class="delete-btn" onclick="deleteTask(this)">✖</button>
+    `;
+
+    document.getElementById("taskList").appendChild(li);
+
+    input.value = "";
 }
 
+
+// Delete task
 function deleteTask(button) {
-  button.parentElement.remove();
+    button.parentElement.remove();
 }
 
-function toggleTask(task) {
-  task.parentElement.classList.toggle("completed");
+
+// Complete / Incomplete task
+function toggleTask(checkbox) {
+    let text = checkbox.nextElementSibling;
+    text.classList.toggle("completed");
 }
+
+document.getElementById("taskInput").addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        addTask();
+    }
+
+});
