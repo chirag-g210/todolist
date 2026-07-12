@@ -570,3 +570,64 @@ body.dark .selected{
     }
 
 }
+
+.shake{
+
+    animation:shake .35s;
+
+    border-color:#EF4444 !important;
+
+}
+
+@keyframes shake{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    20%{
+
+        transform:translateX(-7px);
+
+    }
+
+    40%{
+
+        transform:translateX(7px);
+
+    }
+
+    60%{
+
+        transform:translateX(-7px);
+
+    }
+
+    80%{
+
+        transform:translateX(7px);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}
+body,
+.container,
+.header h1,
+.header p,
+.input-box input,
+.add-btn,
+#theme-btn,
+li,
+.task-content span{
+
+    transition: all .35s ease;
+
+}
