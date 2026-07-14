@@ -1,11 +1,9 @@
-// ===============================
 // Selected Task Index
-// ===============================
+
 let selectedTask = -1;
 
-// ===============================
 // Load Saved Theme
-// ===============================
+
 window.onload = function () {
     let savedTheme = localStorage.getItem("theme");
 
@@ -15,9 +13,8 @@ window.onload = function () {
     }
 };
 
-// ===============================
 // Add Task
-// ===============================
+
 function addTask() {
 
     let input = document.getElementById("taskInput");
@@ -44,9 +41,8 @@ function addTask() {
     updateSelection();
 }
 
-// ===============================
 // Delete Task
-// ===============================
+
 function deleteTask(button) {
 
     let tasks = document.querySelectorAll("#taskList li");
@@ -65,9 +61,8 @@ function deleteTask(button) {
     updateSelection();
 }
 
-// ===============================
 // Toggle Checkbox
-// ===============================
+
 function toggleTask(checkbox) {
 
     let text = checkbox.nextElementSibling;
@@ -76,9 +71,8 @@ function toggleTask(checkbox) {
 
 }
 
-// ===============================
 // Highlight Selected Task
-// ===============================
+
 function updateSelection() {
 
     let tasks = document.querySelectorAll("#taskList li");
@@ -91,9 +85,8 @@ function updateSelection() {
 
 }
 
-// ===============================
 // Theme Toggle
-// ===============================
+
 function toggleTheme() {
 
     document.body.classList.toggle("dark");
@@ -114,9 +107,8 @@ function toggleTheme() {
 
 }
 
-// ===============================
 // Keyboard Controls
-// ===============================
+
 document.addEventListener("keydown", function (event) {
 
     let input = document.getElementById("taskInput");
