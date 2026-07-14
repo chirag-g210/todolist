@@ -9,7 +9,6 @@ A simple and elegant to-do list application built with vanilla HTML, CSS, and Ja
 - ✅ **Delete Tasks**: Remove tasks with a single click using the delete button
 - ✅ **Responsive Design**: Beautiful gradient background and clean UI
 - ✅ **Local Storage Ready**: Perfect for enhancement with persistent storage
-
 - ✅ **Add Dark Mode**:Can switch between dark theme and light theme
 ## Technologies Used
 
