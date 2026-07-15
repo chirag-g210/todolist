@@ -24,14 +24,25 @@ A simple and elegant to-do list application built with vanilla HTML, CSS, and Ja
 4. Click on any task to toggle its completion status (strikethrough)
 5. Click the **❌** button to delete a task
 
+## lighttheme preview
+![alt text](assets/image.png)
+
+## darktheme preview
+![alt text](assets/image1.png)
+
 ## File Structure
 
 ```
 todolist/
-├── index.html      # Main HTML file
-├── style.css       # Styling and layout
-├── script.js       # Application logic
-└── README.md       # This file
+├── assets
+├── todolist/
+├───────├── index.html
+├───────├── script.js
+├───────├── storage.js
+├───────├── style.css
+├── LICENCE
+├── gitignore
+└── README.md     
 ```
 
 ## Installation
